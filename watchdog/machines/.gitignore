@@ -1,2 +1,5 @@
 *.machine/build
 *.machine/machine.json
+*.dot
+*.png
+*.svg
