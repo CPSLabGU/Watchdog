@@ -1,0 +1,8 @@
+// spec:language VHDL
+
+A G operationalMode = '1' -> bootMode = '0'
+
+A G bootMode = '1' -> operationalMode = '0'
+
+
+
