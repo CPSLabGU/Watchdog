@@ -3,3 +3,5 @@
 *.dot
 *.png
 *.svg
+*.machine/model.json
+
