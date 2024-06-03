@@ -5,3 +5,5 @@ A G operationalMode = '1' -> bootMode = '0'
 A G bootMode = '1' -> operationalMode = '0'
 
 A G bootMode = '1' and bootSuccess = '1' -> {A F operationalMode = '1'}_{t <= 2 us}
+
+A G bootMode = '1' and bootFailure = '1' and bootSuccess = '0' -> {A F powerOn = '0' and timerOn = '1'}_{t <= 2 us}
