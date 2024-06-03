@@ -6,4 +6,10 @@ A G bootMode = '1' -> operationalMode = '0'
 
 A G bootMode = '1' and bootSuccess = '1' -> {A F operationalMode = '1'}_{t <= 2 us}
 
-A G bootMode = '1' and bootFailure = '1' and bootSuccess = '0' -> {A F powerOn = '0' and timerOn = '1'}_{t <= 2 us}
+A G bootMode = '1' -> A bootMode = '1' W operationalMode = '1'
+
+A G bootMode = '1' -> E bootMode = '1' U operationalMode = '1'
+
+A G operationalMode = '1' -> A operationalMode = '1' W bootMode = '1'
+
+A G operationalMode = '1' -> E operationalMode = '1' U bootMode = '1'
