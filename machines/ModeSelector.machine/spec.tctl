@@ -12,6 +12,10 @@ A G bootMode = '1' -> E bootMode = '1' U operationalMode = '1'
 
 A G operationalMode = '1' -> A operationalMode = '1' W bootMode = '1'
 
+A G operationalMode = '1' -> E operationalMode = '1' U bootMode = '1'
+
+A X bootMode = '1'
+
 A G pulse1ms = '1' -> A X timerOn = '0'
 
 A G timerOn = '1' -> A timerOn = '1' W pulse1ms = '1'
