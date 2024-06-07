@@ -24,6 +24,15 @@ A G timerOn = '1' -> E timerOn = '1' U pulse1ms = '1'
 
 A G timerOn = '1' and pulse1ms = '1' -> {A F bootMode = '1'}_{t <= 2 us}
 
-A G bootMode = '1' and bootFailure = '1' and bootSuccess /= '1' -> {A F timerOn = '1'}_{t <= 2 us}
+A X powerOn = '1'
 
-A G operationalMode = '1' and operationFailure = '1' -> {A F timerOn = '1'}_{t <= 2 us}
+A X timerOn = '0'
+
+A G currentState /= Initial -> A G timerOn = '1' -> powerOn = '0'
+
+A G currentState /= Initial -> A G timerOn = '0' -> powerOn = '1'
+
+A G currentState = Initial -> {A F currentState /= Initial}_{t <= 1 us}
+
+A G currentState /= Initial -> A G currentState /= Initial
+
