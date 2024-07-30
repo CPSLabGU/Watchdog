@@ -36,3 +36,7 @@ A G currentState = Initial -> {A F currentState /= Initial}_{t <= 1 us}
 
 A G currentState /= Initial -> A G currentState /= Initial
 
+A G bootMode = '1' and bootFailure = '1' and bootSuccess = '0' -> {A F currentState = Restart}_{t <= 2 us}
+
+A G currentState = Restart -> pulse1ms /= '1' -> {A F timerOn = '1'}_{t <= 1 us}
+
