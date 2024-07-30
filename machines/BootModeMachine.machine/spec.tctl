@@ -1,0 +1,6 @@
+// spec:language VHDL
+
+A G bootMode = '1' and pulse5s = '1' and count = x"0" -> {A F bootFailure = '1'}_{t <= 1 us}
+
+A G ((bootMode = '1' and timerOn = '1') and count /= x"0") -> {A F currentState = SetBootSuccess}_{t <= 1 us}
+
