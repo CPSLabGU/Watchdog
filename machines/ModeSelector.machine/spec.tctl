@@ -16,7 +16,7 @@ A G operationalMode = '1' -> E operationalMode = '1' U bootMode = '1'
 
 A X bootMode = '1'
 
-A G bootMode = '1' and bootFailure = '1' and bootSuccess = '0' -> {A F currentState = Restart}_{t <= 2 us}
+A G ((bootMode = '1' and bootFailure = '1') and bootSuccess /= '1') -> {A F currentState = Restart}_{t <= 2 us}
 
 A G currentState = Restart -> pulse1ms /= '1' -> {A F timerOn = '1'}_{t <= 1 us}
 
