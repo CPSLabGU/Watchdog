@@ -41,5 +41,3 @@ A G pulse1ms = '1' -> {A X timerOn = '0'}_{t <= 1 us}
 A G timerOn = '1' and pulse1ms = '1' -> {A F bootMode = '1'}_{t <= 2 us}
 
 A G ((operationalMode = '1' and operationFailure = '1') and currentState = CheckOperationalStatus) -> {A F currentState = Restart}_{t <= 1 us}
-
-A G currentState = Restart and pulse1ms = '1' -> {A F bootMode = '1'}_{t <= 2 us}
