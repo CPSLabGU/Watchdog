@@ -33,6 +33,6 @@ A G timerOn = '1' -> E timerOn = '1' U count /= "0000" or pulse5s = '1'
 A G currentState = Initial -> bootMode = '1' -> {A F currentState = WaitForTimer}_{t <= 2 us}
 
 A G currentState = Initial -> A X currentState = WaitForTimer
-    -> pulse5s = '0' -> count = "0000" -> {A F timerOn = '1'}_{t <= 1 us}
+    -> pulse5s = '0' and count = "0000" -> {A F timerOn = '1'}_{t <= 1 us}
 
 A G bootFailure = '1' -> {A F bootFailure = '0'}_{t <= 1 us}
