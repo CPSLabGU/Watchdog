@@ -1,9 +1,7 @@
 // spec:language VHDL
 
-A G currentState /= SetRecovery -> recoveryMode = '0'
+A G RecoveryModeMachine_failureCount /= 3 and bootFailure = '1' -> operationalMode /= '1' -> A X RecoveryModeMachine_failureCount = 3 -> {A F recoveryMode = '1'}_{t <= 2 us}
 
-A G currentState = SetRecovery and recoveryMode = '0' -> {A F recoveryMode = '1'}_{t <= 1 us}
-
-A G recoveryMode = '1' -> currentState = SetRecovery
+A G recoveryMode = '1' -> RecoveryModeMachine_failureCount = 0
 
 A G recoveryMode = '1' -> A G recoveryMode = '1'
