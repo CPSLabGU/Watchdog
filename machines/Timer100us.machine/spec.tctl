@@ -20,6 +20,12 @@ A G Timer100us_timeCounter > 0 -> pulse = '0'
 
 A G timerOn /= '1' and Timer100us_timeCounter > 0 -> Timer100us_timeCounter < 99 -> pulse = '0'
 
+A G timerOn = '1' and Timer100us_timeCounter = 0 -> {A G timerOn = '1'}_{t <= 100 us} -> pulse = '1'
+
+A G timerOn = '1' and Timer100us_timeCounter = 0 -> pulse = '0' -> {A G pulse = '0'}_{t < 99800 ns}
+
+A G timerOn = '1' and Timer100us_timeCounter = 0 -> pulse = '0' -> E timerOn = '1' U Timer100us_timeCounter = 99 -> {A G pulse = '0'}_{t > 100800 ns}
+
 A G currentState = Initial -> {A F currentState /= Initial}_{t <= 1 us}
 
 A G currentState /= Initial -> A G currentState /= Initial
