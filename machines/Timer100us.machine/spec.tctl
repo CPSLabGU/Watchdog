@@ -16,8 +16,8 @@ A G timerOn /= '1' and Timer100us_timeCounter = 0 -> E Timer100us_timeCounter = 
 
 A G timerOn /= '1' -> {A F pulse = '0'}_{t <= 1 us}
 
-A G timerOn /= '1' and Timer100us_timeCounter = 99 -> pulse = '0'
+A G Timer100us_timeCounter = 99 -> {A F timerOn /= '1'}_{t <= 1 us} -> {A G pulse = '0'}_{t < 100 us}
 
 A G timerOn = '1' and Timer100us_timeCounter = 0 -> {A G timerOn = '1'}_{t <= 100 us} -> pulse = '1'
 
-A G timerOn = '1' and Timer100us_timeCounter = 0 -> pulse = '0' -> {A G pulse = '0'}_{t <= 99 ns}
+A G timerOn = '1' and Timer100us_timeCounter = 0 -> pulse = '0' -> {A G pulse = '0'}_{t <= 99 us}
