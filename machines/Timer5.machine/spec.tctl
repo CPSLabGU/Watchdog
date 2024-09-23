@@ -1,86 +1,56 @@
 // spec:language VHDL
 
-A G Timer10_timeCounter = 9 and subpulse = '1' -> {A G timerOn = '1'}_{t <= 1 us} -> {A F pulse= '1'}_{t <= 1 us}
+A G Timer5_timeCounter = 4 and subpulse = '1' -> {A G timerOn = '1'}_{t <= 1 us} -> {A F pulse= '1'}_{t <= 1 us}
 
-A G Timer10_timeCounter = 9 and subpulse = '1' -> timerOn /= '1' -> {A G pulse = '0'}_{t <= 2 us}
+A G Timer5_timeCounter = 4 and subpulse = '1' -> timerOn /= '1' -> {A G pulse = '0'}_{t <= 2 us}
 
-A G pulse = '0' -> A pulse = '0' W (Timer10_timeCounter = 9 and subpulse = '1')
+A G pulse = '0' -> A pulse = '0' W (Timer5_timeCounter = 4 and subpulse = '1')
 
-A G pulse = '0' -> E pulse = '0' U (Timer10_timeCounter = 9 and subpulse = '1')
+A G pulse = '0' -> E pulse = '0' U (Timer5_timeCounter = 4 and subpulse = '1')
 
 pulse = '0' ^ A X pulse = '0'
 
-A G timerOn = '1' -> Timer10_timeCounter = 0 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 1}_{t <= 1 us}
+A G timerOn = '1' -> Timer5_timeCounter = 0 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer5_timeCounter = 1}_{t <= 1 us}
 
-A G Timer10_timeCounter = 0 -> A Timer10_timeCounter = 0 W timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 0 -> A Timer5_timeCounter = 0 W timerOn /= '1' or subpulse = '1'
 
-A G Timer10_timeCounter = 0 -> E Timer10_timeCounter = 0 U timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 0 -> E Timer5_timeCounter = 0 U timerOn /= '1' or subpulse = '1'
 
-A G timerOn = '1' -> Timer10_timeCounter = 1 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 2}_{t <= 1 us}
+A G timerOn = '1' -> Timer5_timeCounter = 1 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer5_timeCounter = 2}_{t <= 1 us}
 
-A G Timer10_timeCounter = 1 -> A Timer10_timeCounter = 1 W timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 1 -> A Timer5_timeCounter = 1 W timerOn /= '1' or subpulse = '1'
 
-A G Timer10_timeCounter = 1 -> E Timer10_timeCounter = 1 U timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 1 -> E Timer5_timeCounter = 1 U timerOn /= '1' or subpulse = '1'
 
-A G timerOn = '1' -> Timer10_timeCounter = 2 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 3}_{t <= 1 us}
+A G timerOn = '1' -> Timer5_timeCounter = 2 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer5_timeCounter = 3}_{t <= 1 us}
 
-A G Timer10_timeCounter = 2 -> A Timer10_timeCounter = 2 W timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 2 -> A Timer5_timeCounter = 2 W timerOn /= '1' or subpulse = '1'
 
-A G Timer10_timeCounter = 2 -> E Timer10_timeCounter = 2 U timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 2 -> E Timer5_timeCounter = 2 U timerOn /= '1' or subpulse = '1'
 
-A G timerOn = '1' -> Timer10_timeCounter = 3 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 4}_{t <= 1 us}
+A G timerOn = '1' -> Timer5_timeCounter = 3 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer5_timeCounter = 4}_{t <= 1 us}
 
-A G Timer10_timeCounter = 3 -> A Timer10_timeCounter = 3 W timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 3 -> A Timer5_timeCounter = 3 W timerOn /= '1' or subpulse = '1'
 
-A G Timer10_timeCounter = 3 -> E Timer10_timeCounter = 3 U timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 3 -> E Timer5_timeCounter = 3 U timerOn /= '1' or subpulse = '1'
 
-A G timerOn = '1' -> Timer10_timeCounter = 4 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 5}_{t <= 1 us}
+A G timerOn = '1' -> Timer5_timeCounter = 4 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer5_timeCounter = 0}_{t <= 1 us}
 
-A G Timer10_timeCounter = 4 -> A Timer10_timeCounter = 4 W timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 4 -> A Timer5_timeCounter = 4 W timerOn /= '1' or subpulse = '1'
 
-A G Timer10_timeCounter = 4 -> E Timer10_timeCounter = 4 U timerOn /= '1' or subpulse = '1'
+A G Timer5_timeCounter = 4 -> E Timer5_timeCounter = 4 U timerOn /= '1' or subpulse = '1'
 
-A G timerOn = '1' -> Timer10_timeCounter = 5 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 6}_{t <= 1 us}
-
-A G Timer10_timeCounter = 5 -> A Timer10_timeCounter = 5 W timerOn /= '1' or subpulse = '1'
-
-A G Timer10_timeCounter = 5 -> E Timer10_timeCounter = 5 U timerOn /= '1' or subpulse = '1'
-
-A G timerOn = '1' -> Timer10_timeCounter = 6 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 7}_{t <= 1 us}
-
-A G Timer10_timeCounter = 6 -> A Timer10_timeCounter = 6 W timerOn /= '1' or subpulse = '1'
-
-A G Timer10_timeCounter = 6 -> E Timer10_timeCounter = 6 U timerOn /= '1' or subpulse = '1'
-
-A G timerOn = '1' -> Timer10_timeCounter = 7 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 8}_{t <= 1 us}
-
-A G Timer10_timeCounter = 7 -> A Timer10_timeCounter = 7 W timerOn /= '1' or subpulse = '1'
-
-A G Timer10_timeCounter = 7 -> E Timer10_timeCounter = 7 U timerOn /= '1' or subpulse = '1'
-
-A G timerOn = '1' -> Timer10_timeCounter = 8 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 9}_{t <= 1 us}
-
-A G Timer10_timeCounter = 8 -> A Timer10_timeCounter = 8 W timerOn /= '1' or subpulse = '1'
-
-A G Timer10_timeCounter = 8 -> E Timer10_timeCounter = 8 U timerOn /= '1' or subpulse = '1'
-
-A G timerOn = '1' -> Timer10_timeCounter = 9 and subpulse = '0' -> A X timerOn = '1' and subpulse = '1' -> {A F Timer10_timeCounter = 0 and pulse = '1'}_{t <= 1 us}
-
-A G Timer10_timeCounter = 9 -> A Timer10_timeCounter = 9 W timerOn /= '1' or subpulse = '1'
-
-A G Timer10_timeCounter = 9 -> E Timer10_timeCounter = 9 U timerOn /= '1' or subpulse = '1'
-
-A G Timer10_timeCounter <= 9 and Timer10_timeCounter >= 0
+A G Timer5_timeCounter <= 4 and Timer5_timeCounter >= 0
 
 A G pulse = '0' -> A X pulse = '1' -> timerOn = '1'
 
 A G timerOn = '0' -> A X timerOn = '1' -> {A F subtimerOn = '1'}_{t <= 2 us}
 
-A G timerOn = '0' -> {A F subtimerOn = '0' and Timer10_timeCounter = 0}_{t <= 2 us}
+A G timerOn = '0' -> {A F subtimerOn = '0' and Timer5_timeCounter = 0}_{t <= 2 us}
 
-A G timerOn = '0' -> Timer10_timeCounter = 0 -> A Timer10_timeCounter = 0 W (timerOn = '1' and subpulse = '1')
+A G timerOn = '0' -> Timer5_timeCounter = 0 -> A Timer5_timeCounter = 0 W (timerOn = '1' and subpulse = '1')
 
-A G timerOn = '0' -> Timer10_timeCounter = 0 -> E Timer10_timeCounter = 0 U (timerOn = '1' and subpulse = '1')
+A G timerOn = '0' -> Timer5_timeCounter = 0 -> E Timer5_timeCounter = 0 U (timerOn = '1' and subpulse = '1')
 
 A G pulse = '0' -> A X pulse = '1' -> {A F pulse = '0'}_{t > 1 us}
 
