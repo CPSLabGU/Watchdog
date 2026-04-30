@@ -1,0 +1,178 @@
+{
+    "states": [
+        {
+            "name": "Initial",
+            "variables": "",
+            "externalVariables": "bootFailure",
+            "actions": [
+                {
+                    "name": "Internal",
+                    "code": ""
+                },
+                {
+                    "name": "OnEntry",
+                    "code": ""
+                },
+                {
+                    "name": "OnExit",
+                    "code": "previousCount <= x\"0\";\nbootFailure <= '0';"
+                }
+            ],
+            "layout": {
+                "position": {
+                    "x": 331,
+                    "y": 177
+                },
+                "dimensions": {
+                    "x": 200,
+                    "y": 100
+                }
+            }
+        },
+        {
+            "name": "WaitForTimer",
+            "variables": "",
+            "externalVariables": "timerOn\npulse",
+            "actions": [
+                {
+                    "name": "Internal",
+                    "code": ""
+                },
+                {
+                    "name": "OnEntry",
+                    "code": "timerOn <= '1';"
+                },
+                {
+                    "name": "OnExit",
+                    "code": "timerOn <= '0';"
+                }
+            ],
+            "layout": {
+                "position": {
+                    "x": 331,
+                    "y": 177
+                },
+                "dimensions": {
+                    "x": 200,
+                    "y": 100
+                }
+            }
+        },
+        {
+            "name": "SetFailure",
+            "variables": "",
+            "externalVariables": "count\nbootFailure",
+            "actions": [
+                {
+                    "name": "Internal",
+                    "code": ""
+                },
+                {
+                    "name": "OnEntry",
+                    "code": ""
+                },
+                {
+                    "name": "OnExit",
+                    "code": "previousCount <= unsigned(count);\nif (previousCount = unsigned(count)) then\n    bootFailure <= '1';\nelse\n    bootFailure <= '0';\nend if;"
+                }
+            ],
+            "layout": {
+                "position": {
+                    "x": 331,
+                    "y": 177
+                },
+                "dimensions": {
+                    "x": 200,
+                    "y": 100
+                }
+            }
+        }
+    ],
+    "externalVariables": "count: in std_logic_vector(3 downto 0);\nbootFailure: out std_logic;timerOn: out std_logic;\npulse: in std_logic;",
+    "machineVariables": "signal previousCount: unsigned(3 downto 0);",
+    "includes": "library IEEE;\nuse IEEE.std_logic_1164.all;\nuse IEEE.numeric_std.all;",
+    "transitions": [
+        {
+            "source": "Initial",
+            "target": "WaitForTimer",
+            "condition": "true",
+            "layout": {
+                "path": {
+                    "source": {
+                        "x": 274,
+                        "y": 195.5488721804511
+                    },
+                    "target": {
+                        "x": 188,
+                        "y": 96.5488721804511
+                    },
+                    "control0": {
+                        "x": 253,
+                        "y": 180.88220551378444
+                    },
+                    "control1": {
+                        "x": 208,
+                        "y": 142.21553884711778
+                    }
+                }
+            }
+        },
+        {
+            "source": "WaitForTimer",
+            "target": "SetFailure",
+            "condition": "pulse = '1'",
+            "layout": {
+                "path": {
+                    "source": {
+                        "x": 274,
+                        "y": 195.5488721804511
+                    },
+                    "target": {
+                        "x": 188,
+                        "y": 96.5488721804511
+                    },
+                    "control0": {
+                        "x": 253,
+                        "y": 180.88220551378444
+                    },
+                    "control1": {
+                        "x": 208,
+                        "y": 142.21553884711778
+                    }
+                }
+            }
+        },
+        {
+            "source": "SetFailure",
+            "target": "WaitForTimer",
+            "condition": "true",
+            "layout": {
+                "path": {
+                    "source": {
+                        "x": 274,
+                        "y": 195.5488721804511
+                    },
+                    "target": {
+                        "x": 188,
+                        "y": 96.5488721804511
+                    },
+                    "control0": {
+                        "x": 253,
+                        "y": 180.88220551378444
+                    },
+                    "control1": {
+                        "x": 208,
+                        "y": 142.21553884711778
+                    }
+                }
+            }
+        }
+    ],
+    "initialState": "Initial",
+    "clocks": [
+        {
+            "name": "clk",
+            "frequency": "5 MHz"
+        }
+    ]
+}
