@@ -1,2 +1,5 @@
 *.arrangement/build
 *.arrangement/arrangement.json
+*/.DS_Store
+.DS_Store
+
