@@ -1,25 +1,3 @@
-// spec:language VHDL
-
-A G pulse /= 'Z'
-
-A G pulse = '1' -> Timer100us_timeCounter = 0
-
-A G pulse = '1' -> {A F pulse = '0'}_{t == 1 us}
-
-A G timerOn /= '1' -> {A F Timer100us_timeCounter = 0}_{t <= 1 us}
-
-A G timerOn /= '1' -> A F timerOn = '1' -> {A F Timer100us_timeCounter = 1}_{t == 1 us}
-
-A G timerOn /= '1' and Timer100us_timeCounter = 0 -> A Timer100us_timeCounter = 0 W timerOn = '1'
-
-A G timerOn /= '1' and Timer100us_timeCounter = 0 -> E Timer100us_timeCounter = 0 U timerOn = '1'
-
-A G timerOn /= '1' -> {A F pulse = '0'}_{t <= 1 us}
-
-A G Timer100us_timeCounter = 99 -> {A F timerOn /= '1'}_{t <= 1 us} -> {A G pulse = '0'}_{t < 100 us}
-
-A G timerOn = '1' and Timer100us_timeCounter = 0 -> {A G timerOn = '1'}_{t <= 100 us} -> pulse = '1'
-
-A G pulse = '1' -> {A G pulse = '0'}_{t < 100 us, t >= 1 us}
-
-{A G pulse = '0'}_{t < 100 us}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a710d3aa454e6363838d4e082a4458a9d1a38cc3b81b74d04adce67a2d74afef
+size 844

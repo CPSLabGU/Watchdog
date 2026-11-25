@@ -1,7 +1,3 @@
-// spec:language VHDL
-
-A G RecoveryModeMachine_failureCount /= 3 and bootFailure = '1' -> operationalMode /= '1' -> A X RecoveryModeMachine_failureCount = 3 -> {A F recoveryMode = '1'}_{t <= 2 us}
-
-A G recoveryMode = '1' -> RecoveryModeMachine_failureCount = 0
-
-A G recoveryMode = '1' -> A G recoveryMode = '1'
+version https://git-lfs.github.com/spec/v1
+oid sha256:bf9ee8f01799e262d2478d0cd08ac2b299ff34c673b9b34c2ba6a0a03ee43656
+size 311

@@ -1,6 +1,3 @@
-*.machine/build
-*.machine/machine.json
-*.dot
-*.png
-*.svg
-*.dot.*
+version https://git-lfs.github.com/spec/v1
+oid sha256:a2d1793dfbe2ca9311250164f961ec6dbd003a481e5b46765c617d65e1c3b732
+size 65

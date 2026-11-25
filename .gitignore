@@ -1,5 +1,3 @@
-*.arrangement/build
-*.arrangement/arrangement.json
-*/.DS_Store
-.DS_Store
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:fc8b5b1e792781496b1ba89ac9a4667b238aff6400e82fe2e0d0141828cf9439
+size 74
