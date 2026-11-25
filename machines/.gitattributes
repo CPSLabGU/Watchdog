@@ -1,0 +1,6 @@
+ModeSelector.machine/output.json filter=lfs diff=lfs merge=lfs -text
+BootModeMachine.machine/output.json filter=lfs diff=lfs merge=lfs -text
+RecoveryModeMachine.machine/output.json filter=lfs diff=lfs merge=lfs -text
+Timer10.machine/output.json filter=lfs diff=lfs merge=lfs -text
+Timer100us.machine/output.json filter=lfs diff=lfs merge=lfs -text
+Timer5.machine/output.json filter=lfs diff=lfs merge=lfs -text
