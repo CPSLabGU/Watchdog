@@ -1,3 +1,224 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b23d824158f20303aeea61a091e4ae168c09f76f8155169e0bdff0f1579aa188
-size 7229
+{
+    "clocks": [
+        {
+            "name": "clk",
+            "frequency": "5 MHz"
+        }
+    ],
+    "externalVariables": "count: in std_logic_vector(3 downto 0);\npowerOn: out std_logic;\nrecoveryMode: out std_logic;",
+    "machines": [
+        {
+            "name": "bootMode100us_inst",
+            "path": "machines/Timer100us.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootTimerOn100us",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootPulse100us",
+                    "destination": "pulse"
+                }
+            ]
+        },
+        {
+            "name": "bootModems_inst",
+            "path": "machines/Timer10.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootTimerOn100us",
+                    "destination": "subtimerOn"
+                },
+                {
+                    "source": "bootPulse100us",
+                    "destination": "subpulse"
+                },
+                {
+                    "source": "bootTimerOnms",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootPulsems",
+                    "destination": "pulse"
+                }
+            ]
+        },
+        {
+            "name": "bootMode10ms_inst",
+            "path": "machines/Timer10.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootTimerOnms",
+                    "destination": "subtimerOn"
+                },
+                {
+                    "source": "bootPulsems",
+                    "destination": "subpulse"
+                },
+                {
+                    "source": "bootTimerOn10ms",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootPulse10ms",
+                    "destination": "pulse"
+                }
+            ]
+        },
+        {
+            "name": "bootMode100ms_inst",
+            "path": "machines/Timer10.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootTimerOn10ms",
+                    "destination": "subtimerOn"
+                },
+                {
+                    "source": "bootPulse10ms",
+                    "destination": "subpulse"
+                },
+                {
+                    "source": "bootTimerOn100ms",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootPulse100ms",
+                    "destination": "pulse"
+                }
+            ]
+        },
+        {
+            "name": "bootMode1s_inst",
+            "path": "machines/Timer10.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootTimerOn100ms",
+                    "destination": "subtimerOn"
+                },
+                {
+                    "source": "bootPulse100ms",
+                    "destination": "subpulse"
+                },
+                {
+                    "source": "bootTimerOn1s",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootPulse1s",
+                    "destination": "pulse"
+                }
+            ]
+        },
+        {
+            "name": "bootMode5s_inst",
+            "path": "machines/Timer5.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootTimerOn1s",
+                    "destination": "subtimerOn"
+                },
+                {
+                    "source": "bootPulse1s",
+                    "destination": "subpulse"
+                },
+                {
+                    "source": "bootTimerOn5s",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootPulse5s",
+                    "destination": "pulse"
+                }
+            ]
+        },
+        {
+            "name": "recoveryMode_inst",
+            "path": "machines/RecoveryModeMachine.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootMode",
+                    "destination": "bootMode"
+                },
+                {
+                    "source": "operationalMode",
+                    "destination": "operationalMode"
+                },
+                {
+                    "source": "bootFailure",
+                    "destination": "bootFailure"
+                },
+                {
+                    "source": "recoveryMode",
+                    "destination": "recoveryMode"
+                }
+            ]
+        },
+        {
+            "name": "bootMode_inst",
+            "path": "machines/BootModeMachine.machine",
+            "mappings": [
+                {
+                    "source": "clk",
+                    "destination": "clk"
+                },
+                {
+                    "source": "bootPulse5s",
+                    "destination": "pulse5s"
+                },
+                {
+                    "source": "bootMode",
+                    "destination": "bootMode"
+                },
+                {
+                    "source": "operationalMode",
+                    "destination": "operationalMode"
+                },
+                {
+                    "source": "bootTimerOn5s",
+                    "destination": "timerOn"
+                },
+                {
+                    "source": "bootFailure",
+                    "destination": "bootFailure"
+                },
+                {
+                    "source": "bootSuccess",
+                    "destination": "bootSuccess"
+                },
+                {
+                    "source": "count",
+                    "destination": "count"
+                }
+            ]
+        }
+    ],
+    "globalVariables": "signal bootTimerOn100us: std_logic;\nsignal bootPulse100us: std_logic;\nsignal bootTimerOnms: std_logic;\nsignal bootPulsems: std_logic;\nsignal bootTimerOn10ms: std_logic;\nsignal bootPulse10ms: std_logic;\nsignal bootTimerOn100ms: std_logic;\nsignal bootPulse100ms: std_logic;\nsignal bootTimerOn1s: std_logic;\nsignal bootPulse1s: std_logic;\nsignal bootTimerOn5s: std_logic;\nsignal bootPulse5s: std_logic;\nsignal bootMode: std_logic;\nsignal operationalMode: std_logic;\nsignal bootFailure: std_logic;\nsignal bootSuccess: std_logic;"
+}
